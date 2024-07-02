@@ -1,0 +1,24 @@
+{
+	"items": {
+		"pvzHE": {
+			"name": "PVZ杂交版",
+			"odir": "C:\\ProgramData\\PopCap Games\\PlantsVsZombies\\pvzHE",
+			"bdir": ".\\Backups\\PVZ杂交版",
+			"form": "7z"
+		},
+		"MCBE": {
+			"name": "Minecraft for Windows",
+			"odir": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe",
+			"bdir": ".\\Backups\\MCBE",
+			"form": "7z"
+		},
+		"MCPV": {
+			"name": "Minecraft for Windows Preview",
+			"odir": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe",
+			"bdir": ".\\Backups\\MCPV",
+			"form": "7z"
+		}
+	},
+	"bak": {},
+	"rec": {}
+}
