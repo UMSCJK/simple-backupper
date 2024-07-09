@@ -1,7 +1,11 @@
 import os, time
-from functions import comp, getTime, temSize, cls, folder, readJSON
+from functions import comp, getTime, temSize, cls, folder, readJSON, writeJSON
 
+if not os.path.isfile('config.json'):
+	defaultConfig = {'1': {'info': 'PVZ杂交版', 'bdir': '.\\Backups', 'head': 'pvzHE', 'form': '7z', 'path': 'C:\\ProgramData\\PopCap Games\\PlantsVsZombies\\pvzHE\\yourdata'}, '2': {'info': 'Minecraft基岩版', 'bdir': '.\\Backups', 'head': 'MCBE', 'form': 'zip', 'path': '%LocalAppData%\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang'}, '3': {'info': 'Minecraft预览版', 'bdir': '.\\Backups', 'head': 'MCPV', 'form': 'zip', 'path': '%LocalAppData%\\Packages\\Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe\\LocalState\\games\\com.mojang'}}
+	writeJSON('config.json', defaultConfig)
 cfg = readJSON('config.json')
+
 def main():
 	cls()
 	print(f'文件夹备份工具\n{'=' * temSize(0)}')
