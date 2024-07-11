@@ -13,7 +13,18 @@ def readJSON(f): # Read & return JSON file data
 def writeJSON(f, data): # Write data into JSON file
 	with open(f, "w", encoding="UTF-8") as file:
 		json.dump(data, file, ensure_ascii=False, indent='\t')
-
+def cfgOK(f): # 若配置文件异常则返回False
+	try:
+		okCt, totCt, cfg, items = 0, 0, readJSON(f), ['info', 'bdir', 'head', 'form', 'path']
+		for c in cfg:
+			for i in items:
+				try:
+					if cfg[c][i]: okCt += 1
+				except: print(f'{f}: [{c}][{i}]缺失！')
+			totCt += len(items)
+		if okCt == totCt: return True
+		else: return False
+	except: return False
 # comp("1.zip", getOjng(0))
 # extr("1.zip", ".\\t")
 # print(f"Release: {getOjng(0)}\nPreview: {getOjng(1)}")
@@ -23,3 +34,4 @@ def writeJSON(f, data): # Write data into JSON file
 # jsonData = readJSON("example_config.json")
 # print(jsonData)
 # writeJSON("test.json", jsonData)
+# cfgOK('config.json')
