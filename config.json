@@ -1,0 +1,23 @@
+{
+	"1": {
+		"info": "PVZ杂交版",
+		"bdir": ".\\Backups",
+		"head": "pvzHE",
+		"form": "7z",
+		"path": "C:\\ProgramData\\PopCap Games\\PlantsVsZombies\\pvzHE\\yourdata"
+	},
+	"2": {
+		"info": "Minecraft基岩版",
+		"bdir": ".\\Backups",
+		"head": "MCBE",
+		"form": "zip",
+		"path": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\LocalState\\games\\com.mojang"
+	},
+	"3": {
+		"info": "Minecraft预览版",
+		"bdir": ".\\Backups",
+		"head": "MCPV",
+		"form": "zip",
+		"path": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe\\LocalState\\games\\com.mojang"
+	}
+}
