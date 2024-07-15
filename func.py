@@ -1,7 +1,12 @@
 import os, time, json
 def comp(f, d): os.system(f'7z a {f} \'{d}\\**\'') # Compress
 def extr(f, d): os.system(f'7z x {f} -o{d} -aoa') # Extract
-def get_ojng(v): return f'{os.environ.get('LocalAppData')}\\Packages\\Microsoft.Minecraft{['UWP', 'WindowsBeta'][v]}_8wekyb3d8bbwe\\LocalState\\games\\com.mojang'
+def get_ojng(v):
+	paths, vers, app_data = ['', ''], ['UWP', 'WindowsBeta'], os.environ.get('LocalAppData')
+	def gen_path(v): return f'{app_data}\\Packages\\Microsoft.Minecraft{vers[v]}_8wekyb3d8bbwe\\LocalState\\games\\com.mojang'
+	for i in [0, 1]:
+		if os.path.isdir(gen_path(i)): paths[i] = gen_path(i)
+	return paths[v]
 def get_wrlz(v): return f'{get_ojng(v)}\\minecraftWorlds'
 def get_time(d): return time.strftime('%Y%m%d%H%M%S')[0:d]
 def tem_size(i): return [os.get_terminal_size().columns, os.get_terminal_size().lines][i]
@@ -47,6 +52,12 @@ def bubble(arr):
 				arr[j], arr[j + 1] = arr[j + 1], arr[j]
 	return arr
 # https://www.runoob.com/w3cnote/bubble-sort.html
+def get_str_width(str):
+	ascii_count = 0
+	for char in str:
+		if '\x00' <= char <= '\xff': # RE: [^\x00-\xff]
+			ascii_count += 1
+	return len(str) * 2 - ascii_count
 
 # comp('1.zip', getOjng(0))
 # extr('1.zip', '.\\t')
@@ -60,3 +71,5 @@ def bubble(arr):
 # cfgOK('config.json')
 # print(is_mcworld(f'{get_wrlz(1)}\\PDpWPodkHVA='))
 # print(get_folder_size(f'{get_wrlz(1)}\\PDpWPodkHVA='))
+# print(bubble([2, 1, 6, 3, 7, 5, 4])) # [7, 6, 5, 4, 3, 2, 1]
+# print(get_str_width('UMSC最后的备份'))
