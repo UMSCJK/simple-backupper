@@ -37,27 +37,25 @@ def is_mcworld(path):
 		err_num += (not os.path.isfile(f'{path}\\{f}'))
 	err_num += (not os.path.isdir(f'{path}\\db'))
 	return (err_num == 0)
-def get_folder_size(folder_path):
+def get_folder_size(folder_path): # https://geek-docs.com/python/python-ask-answer/236_python_very_quickly_getting_total_size_of_folder.html
 	total_size = 0
 	for path, dirs, files in os.walk(folder_path):
 		for file in files:
 			file_path = os.path.join(path, file)
 			total_size += os.path.getsize(file_path)
 	return total_size
-# https://geek-docs.com/python/python-ask-answer/236_python_very_quickly_getting_total_size_of_folder.html
-def bubble(arr):
+def bubble(arr): # https://www.runoob.com/w3cnote/bubble-sort.html
 	for i in range(1, len(arr)):
 		for j in range(0, len(arr) - i):
 			if arr[j] < arr[j + 1]:
 				arr[j], arr[j + 1] = arr[j + 1], arr[j]
 	return arr
-# https://www.runoob.com/w3cnote/bubble-sort.html
-def get_str_width(str):
+def get_width(input):
 	ascii_count = 0
-	for char in str:
+	for char in str(input):
 		if '\x00' <= char <= '\xff': # RE: [^\x00-\xff]
 			ascii_count += 1
-	return len(str) * 2 - ascii_count
+	return len(input) * 2 - ascii_count
 
 # comp('1.zip', getOjng(0))
 # extr('1.zip', '.\\t')
